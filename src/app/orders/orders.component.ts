@@ -12,6 +12,7 @@ import { Http } from '@angular/http';
 export class OrdersComponent implements OnInit {
 
   orders: Array<any> = [];
+  name = ''; 
 
   constructor(
     private router: Router,
@@ -81,6 +82,16 @@ export class OrdersComponent implements OnInit {
       });
 
     }
+  }
+
+  submit() {
+    const commaIndex = this.name.indexOf(',');
+    const firstName = (commaIndex, this.name.length);
+    const lastName = (commaIndex, 0);
+    const fullName = firstName + ' ' + lastName; 
+    
+
+
   }
 
   delete(index: number) {
