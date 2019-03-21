@@ -21,7 +21,71 @@ export class OrdersComponent implements OnInit {
   }
 
   async ngOnInit() {
+    this.loadItems();
 
   }
+
+  loadItems() {
+    this.orders = [{
+      'pid': '1',
+      'image': 'assets/sm_android.jpeg',
+      'description': 'Android',
+      'price': 150.00,
+      'quantity': 2
+    }, {
+      'pid': '2',
+      'image': 'assets/sm_iphone.jpeg',
+      'description': 'IPhone',
+      'price': 200.00,
+      'quantity': 1
+    }, {
+      'pid': '3',
+      'image': 'assets/sm_windows.jpeg',
+      'description': 'Windows Phone',
+      'price': 110.00,
+      'quantity': 2
+    }];
+  }
+
+  clear(index: number) {
+    this.orders.splice(index, 1000000000);
+  }
+
+  addItem (item: string) {
+    switch (item) {
+      case 'android' :
+      this.orders.unshift({
+        'pid': '1',
+        'image': 'assets/sm_android.jpeg',
+        'description': 'Android',
+        'price': 150.00,
+        'quantity': 0
+      });
+      break;
+      case 'iphone' :
+      this.orders.unshift({
+        'pid': '2',
+        'image': 'assets/sm_iphone.jpeg',
+        'description': 'IPhone',
+        'price': 200.00,
+        'quantity': 0
+      });
+      break;
+      case 'windows' :
+      this.orders.unshift({
+        'pid': '3',
+        'image': 'assets/sm_windows.jpeg',
+        'description': 'Windows Phone',
+        'price': 110.00,
+        'quantity': 0
+      });
+
+    }
+  }
+
+  delete(index: number) {
+    this.orders.splice(index, 1);
+  }
+
 
 }
